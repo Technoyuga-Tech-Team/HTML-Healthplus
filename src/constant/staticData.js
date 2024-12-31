@@ -13,3 +13,17 @@ export const imagesForGrid = [{
     id: 4,
     name: LANDING_PAGE_IMAGES['4']
 },]
+
+export const secondFrameConstants = [{
+    id:1,
+    number:"1,000+",
+    text:"Lives Transformed"
+},{
+    id:2,
+    number:"95%",
+    text:"Client Satisfaction"
+},{
+    id:3,
+    number:"1,200+",
+    text:"Innovative Solutions Delivered"
+}]

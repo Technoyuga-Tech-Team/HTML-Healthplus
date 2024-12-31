@@ -1,8 +1,20 @@
+import { secondFrameConstants } from '@/constant/staticData'
 import React from 'react'
 
 const Frame2 = () => {
   return (
-    <div>Frame2</div>
+    <div className='sf-main-wrapper'>
+      <div className='sf-main-wrapper-inner container'>
+        {secondFrameConstants?.map((d, i) => {
+          return (
+            <div key={i} className='sf-main-wrapper-inner-inner my-3'>
+              <div className=' dark-font font-size1 font-color1 line-height1 px-2'>{d?.number}</div>
+              <div>{d?.text}</div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 
