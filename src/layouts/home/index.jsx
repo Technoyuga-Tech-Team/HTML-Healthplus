@@ -1,9 +1,12 @@
 import React from 'react'
-
-const Index = () => {
+import Frame1 from './Frame1'
+import './index.css'
+const Home = () => {
   return (
-    <div>index</div>
+    <>
+    <Frame1/>
+    </>
   )
 }
 
-export default Index
+export default Home

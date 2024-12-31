@@ -1,5 +1,6 @@
-import { BrowserRouter, Router, Routes } from 'react-router-dom'
-import './App.css'
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
+import Home from './layouts/home'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Router path="/" element={<ProtectedRoutesAfterLogin element={<Login />} />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>

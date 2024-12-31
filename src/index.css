@@ -1,19 +1,69 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --primary-color: rgba(8, 126, 65, 1);
+  --secondary-color: rgba(249, 251, 251, 1);
+  --text-color1: rgba(51, 51, 51, 1);
+  --text-color2: rgba(79, 79, 79, 1)
 }
+
 
 @font-face {
   font-family: 'font-dark';
-  src: url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
+  src: url('./assets/fonts/Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'font-medium';
+  src: url('./assets/fonts/Lato-Black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'font-regular';
+  src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+.dark-font {
+  font-family: font-dark;
+}
+
+.medium-font {
+  font-family: font-medium;
+}
+
+.regular-font {
+  font-family: font-regular;
+}
+
+.font-size1 {
+  font-size: 60px;
+}
+
+.font-size2 {
+  font-size: 24px;
+}
+
+.font-size3 {
+  font-size: 20px;
+}
+
+.font-color1 {
+  color: var(--text-color1);
+}
+
+.font-color2 {
+  color: var(--text-color2);
+}
+
+.line-height1 {
+  line-height: 1.2;
+}
+
+@media only screen and (max-width: 551px) {
+  .font-size1 {
+    font-size: 40px;
+  }
+
+  .font-size2 {
+    font-size: 20px;
+  }
+
 }

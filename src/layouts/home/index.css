@@ -1,0 +1,50 @@
+/* first frame */
+.ff-main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.ff-main-wrapper-left {
+    width: 50%;
+    padding-right: 45px;
+}
+
+.ff-main-wrapper-right {
+    width: 50%;
+}
+
+.ff-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Creates 2 equal columns */
+    grid-template-rows: repeat(2, 1fr);
+    /* Creates 2 equal rows */
+    gap: 10px;
+    /* Optional: space between grid items */
+}
+
+.ff-grid-wrapper div img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* media query */
+@media only screen and (max-width: 991px) {
+    .ff-main-wrapper {
+        flex-direction: column;
+    }
+
+    .ff-main-wrapper-left {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .ff-main-wrapper-right {
+        width: 100%;
+    }
+
+}
