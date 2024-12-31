@@ -9,7 +9,7 @@ const Frame2 = () => {
           return (
             <div key={i} className='sf-main-wrapper-inner-inner my-3'>
               <div className=' dark-font font-size1 font-color1 line-height1 px-2'>{d?.number}</div>
-              <div>{d?.text}</div>
+              <div className='regular-font font-size3 font-color2'>{d?.text}</div>
             </div>
           )
         })}
