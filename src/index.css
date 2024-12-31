@@ -57,6 +57,10 @@
   line-height: 1.2;
 }
 
+.btn-primary {
+  background-color: var(--primary-color) !important;
+}
+
 @media only screen and (max-width: 551px) {
   .font-size1 {
     font-size: 40px;

@@ -7,7 +7,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@/assets': '/src/assets',
-      '@/constant': '/src/constant'
+      '@/constant': '/src/constant',
+      '@/componant': '/src/componant'
     },
   },
 })

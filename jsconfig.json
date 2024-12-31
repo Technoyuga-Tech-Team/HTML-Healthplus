@@ -10,6 +10,9 @@
       ],
       "@/constant/*": [
         "src/constant/*"
+      ],
+      "@/componant/*": [
+        "src/componant/*"
       ]
     }
   }
