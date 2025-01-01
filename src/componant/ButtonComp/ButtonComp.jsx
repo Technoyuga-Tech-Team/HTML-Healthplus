@@ -1,9 +1,11 @@
 import React from 'react'
 
-function ButtonComp({ text }) {
+function ButtonComp({ text, color, background, border }) {
     return (
         <div>
-            <button className='btn btn-primary'>
+            <button
+                style={{ color: color, backgroundColor: background, border }}
+                className={background ? 'btn' : 'btn btn-primary'}>
                 {text}
             </button>
         </div>

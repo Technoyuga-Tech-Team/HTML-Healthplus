@@ -21,6 +21,10 @@
   src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
 }
 
+body {
+  font-family: 'font-regular';
+}
+
 .dark-font {
   font-family: font-dark;
 }
@@ -43,6 +47,14 @@
 
 .font-size3 {
   font-size: 18px;
+}
+
+.font-size4 {
+  font-size: 44px;
+}
+
+.font-size5 {
+  font-size: 20px;
 }
 
 .font-color1 {
@@ -70,4 +82,11 @@
     font-size: 20px;
   }
 
+  .font-size4 {
+    font-size: 36px;
+  }
+
+  .font-size5 {
+    font-size: 18px;
+  }
 }

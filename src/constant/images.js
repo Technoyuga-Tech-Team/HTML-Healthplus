@@ -14,6 +14,16 @@ export const LANDING_PAGE_IMAGES = {
     13: "assets/images/landingPage/13.png",
 }
 
+export const LANDING_PAGE_VECTOR_ICON = {
+    1: "assets/images/landingPage/vecotors/1.png",
+    2: "assets/images/landingPage/vecotors/2.png",
+    3: "assets/images/landingPage/vecotors/3.png",
+    4: "assets/images/landingPage/vecotors/4.png",
+    5: "assets/images/landingPage/vecotors/5.png",
+    6: "assets/images/landingPage/vecotors/6.png",
+}
+
+
 export const HEADER_IMAGES = {
-    logo:"assets/images/landingPage/logo.png"
+    logo: "assets/images/landingPage/logo.png"
 }

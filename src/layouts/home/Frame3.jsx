@@ -1,8 +1,6 @@
 
 import ButtonComp from '@/componant/ButtonComp/ButtonComp'
 import { LANDING_PAGE_IMAGES } from '@/constant/images'
-import { imagesForGrid } from '@/constant/staticData'
-import React from 'react'
 
 const Frame3 = () => {
   return (
