@@ -15,9 +15,9 @@ const Frame3 = () => {
           </div>
           <div className='my-3 regular-font font-size2 font-color2 fw-normal' >At <span style={{color:"var(--primary-color)"}}>interp,</span> we’re dedicated to supporting health entrepreneurs who dare to dream big. Whether you're developing breakthrough medical technologies, launching wellness programs, or innovating in patient care, we provide the resources, mentorship, and connections you need to succeed.</div>
           <div className='my-4'>
-            <ButtonComp
+            {/* <ButtonComp
               text={"Book Appointment"}
-            />
+            /> */}
           </div>
         </div>
       </div>

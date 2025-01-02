@@ -9,7 +9,7 @@ const Frame6 = () => {
       <div className='sif-main-wrapper'>
         <div className='container'>
           <div className='sif-main-wrapper'>
-            <div className='sif-main-wrapper-left my-2'>
+            <div className='sif-main-wrapper-left'>
               <div className=' green-color-text'>
                 Why Choose Us
               </div>

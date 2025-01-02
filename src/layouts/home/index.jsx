@@ -6,6 +6,11 @@ import Frame3 from './Frame3'
 import Frame4 from './Frame4'
 import Frame5 from './Frame5'
 import Frame6 from './Frame6'
+import Frame7 from './Frame7'
+import Frame8 from './Frame8'
+import Frame9 from './Frame9'
+import Footer from '@/comman/footer'
+import HeaderComponent from '@/comman/header'
 
 const Home = () => {
 
@@ -17,6 +22,9 @@ const Home = () => {
       <Frame4 />
       <Frame5 />
       <Frame6 />
+      <Frame7 />
+      <Frame8 />
+      <Frame9 />
     </>
   )
 }

@@ -13,6 +13,9 @@
       ],
       "@/componant/*": [
         "src/componant/*"
+      ],
+      "@/comman/*": [
+        "src/comman/*"
       ]
     }
   }
