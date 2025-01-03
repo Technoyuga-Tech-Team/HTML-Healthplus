@@ -24,7 +24,21 @@ export const LANDING_PAGE_VECTOR_ICON = {
     6: "assets/images/landingPage/vecotors/6.png",
 }
 
-
 export const HEADER_IMAGES = {
     logo: "assets/images/landingPage/Logo.png"
 }
+
+export const REGISTER_PAGE_IMAGES = {
+    1: "assets/images/registerPage/1.png",
+    2: "assets/images/registerPage/2.png",
+    3: "assets/images/registerPage/3.png",
+    4: "assets/images/registerPage/4.png",
+}
+
+export const onChangeTextCharacterLimitConst = 35
+export const shouldNotEnterSpaceAtMiddle = /^\S*$/
+export const onlyNumberShouldAllowed = /^[0-9]*$/
+export const allowedOnlyCharAndSpace = /^[a-zA-Z\s]*$/
+export const allowedOnlyCharacter = /^[A-Za-z]*$/
+export const allowCharacterAndNumber = /^[a-zA-Z0-9 ]+$/
+

@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: 'font-regular';
+  font-family: font-regular !important;
 }
 
 .dark-font {

@@ -1,0 +1,56 @@
+.register-main-wrapper {
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(249, 251, 251, 1);
+}
+
+.register-main-wrapper-left {
+    width: 45%;
+    margin: 40px;
+    text-align: center;
+}
+
+.register-main-wrapper-right {
+    width: 50%;
+    margin: 40px;
+}
+
+.register-main-wrapper-right-inner {
+    width: 100%;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(10, 46, 114, 0.26);
+}
+
+
+
+.register-main-wrapper-flex {
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+.register-main-wrapper-flex-inner {
+    width: 25%;
+}
+
+.register-main-wrapper-flex-inner div img {
+    width: 100%;
+}
+
+.register-create-account {
+    font-size: 25px;
+    font-weight: 600;
+    font-family: font-regular;
+    text-align: center;
+    line-height: 2;
+}
+
+.register-create-account-inner {
+    font-size: 16px;
+    color: rgba(148, 156, 169, 1);
+    text-align: center;
+    line-height: 2;
+}

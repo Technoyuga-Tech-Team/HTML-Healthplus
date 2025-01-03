@@ -16,6 +16,9 @@
       ],
       "@/comman/*": [
         "src/comman/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
       ]
     }
   }

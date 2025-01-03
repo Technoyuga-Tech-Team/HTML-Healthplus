@@ -1,9 +1,10 @@
-import { LANDING_PAGE_IMAGES, LANDING_PAGE_VECTOR_ICON } from "./images";
+import { LANDING_PAGE_IMAGES, LANDING_PAGE_VECTOR_ICON, REGISTER_PAGE_IMAGES } from "./images";
 import { SlSocialFacebook } from "react-icons/sl";
 import { IoLogoInstagram } from "react-icons/io5";
 import { FiYoutube } from "react-icons/fi";
 import { SlSocialLinkedin } from "react-icons/sl";
-
+import { HiUser } from "react-icons/hi";
+import { BsWechat } from "react-icons/bs";
 
 export const imagesForGrid = [{
     id: 1,
@@ -153,3 +154,37 @@ export const HOME_HEADER_CONST_DATA = [{
     name: "Contact Us",
     // nav: routeConst.whatWeDo
 }]
+
+export const registerPageConstant = [{
+    id: 1,
+    image: REGISTER_PAGE_IMAGES[1],
+    text: "Transformed"
+},
+{
+    id: 2,
+    image: REGISTER_PAGE_IMAGES[2],
+    text: "Client Satisfaction"
+}, {
+    id: 3,
+    image: REGISTER_PAGE_IMAGES[3],
+    text: "Solutions"
+}, {
+    id: 4,
+    image: REGISTER_PAGE_IMAGES[4],
+    text: "Appointments"
+}]
+
+export const tabBarOptions = [{
+    id: 1,
+    icon: <HiUser size={22} />,
+    title: "Customer",
+    desc: "Manage your appointments and communicate with your interpreters",
+    isSelected: true
+}, {
+    id: 2,
+    icon: <BsWechat size={22} />,
+    title: "Interpreter",
+    desc: "Connect with users to bridge language barriers during consultations.",
+    isSelected: false
+},
+]
