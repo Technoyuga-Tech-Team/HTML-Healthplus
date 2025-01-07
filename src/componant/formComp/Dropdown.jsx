@@ -1,3 +1,4 @@
+import { ErrorMessage } from "formik";
 import Select from "react-select";
 
 const DropdownComponent = ({
@@ -12,17 +13,22 @@ const DropdownComponent = ({
     isMulti,
     isClear,
     name,
-    setFieldValue
+    setFieldValue,
+    label,
+    extraDropdownOption,
+    setDropdownState
 }) => {
+
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
             width: width || "100%",
-            borderRadius: 4,
+            borderRadius: 10,
+            padding: 2,
             borderColor: state.isFocused ? "rgb(63, 97, 195)" : "#ced4da",
             boxShadow: state.isFocused ? "0 0 0 0.1rem rgba(31, 31, 31, 0.1)" : null,
             backgroundColor: state.isDisabled ? '#eff2f7' : 'white',
-            color: "#505d69"
+            color: "rgba(102, 102, 102, 1)"
         }),
         option: (provided, state) => ({
             ...provided,
@@ -56,23 +62,36 @@ const DropdownComponent = ({
         } else {
             setFieldValue(name, data)
         }
+        if (setDropdownState) {
+            setDropdownState(data)
+        }
     }
 
+    console.log(" ----------------------------------- ");
 
     return (
         <div>
+            {label &&
+                <label
+                    className="form-label"
+                    htmlFor={name}>{label}</label>
+            }
+
             <Select
-                options={options}
+                options={extraDropdownOption[name]}
                 styles={customStyles}
                 onChange={onChangeDropdownValue}
                 placeholder={placeholder || "Select an option"}
                 defaultValue={defaultVal}
-                isSearchable={false}
+                isSearchable={true}
                 value={value}
                 isDisabled={isDisabled || false}
                 isMulti={isMulti || false}
                 isClearable={isClear || false}
             />
+
+            <ErrorMessage style={{ color: "red" }} name={name} component="div" />
+
         </div>
     );
 };

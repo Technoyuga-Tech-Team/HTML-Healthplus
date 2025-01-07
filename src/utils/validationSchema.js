@@ -24,7 +24,7 @@ const phoneNumberValidationConst = Yup.string()
     .max(16, 'Phone number must be at most 16 characters')
 
 // Register as investor
-export const registerAsCustomerValidationSchema = Yup.object().shape({
+export const registerAsCustomeInterpreterValidationSchema = Yup.object().shape({
     first_name: Yup.string().required('First name is required'),
     last_name: Yup.string().required('Last name is required'),
     username: Yup.string().required('Username is required'),
@@ -34,8 +34,7 @@ export const registerAsCustomerValidationSchema = Yup.object().shape({
     confirmPassword: confirmPasswordYupValidationConst,
     language: Yup.array().required('Language is required')
 });
-
-export const registerCustomerInitialValue = [
+export const registerCustomerInterpreterInitialValue = [
     {
         name: "first_name",
         type: "text",
@@ -85,6 +84,7 @@ export const registerCustomerInitialValue = [
         type: "dropdownPaginate",
         label: "Select language",
         typeOfApi: "language",
+        isMulti: true,
         placeHolder: "Select language",
         value: "",
         regEx: allowedOnlyCharacter,
@@ -118,3 +118,72 @@ export const registerCustomerInitialValue = [
 
     }
 ]
+
+export const interpreterFromInitialValue2 = [
+    {
+        name: "date_of_birth",
+        type: "date",
+        label: "Date of birth",
+        placeHolder: "MM-DD-YYYY",
+        value: "",
+        regEx: allowedOnlyCharAndSpace
+    },
+    {
+        name: "country_code",
+        type: "dropdown",
+        label: "Country",
+        placeHolder: "Select country",
+        value: "",
+        style: { flex: true },
+    },
+    {
+        name: "state",
+        type: "dropdown",
+        label: "State",
+        placeHolder: "Select state",
+        value: "",
+        style: { flex: true },
+    },
+    {
+        name: "city",
+        type: "dropdown",
+        label: "City",
+        placeHolder: "Select city",
+        value: "",
+        style: { flex: true },
+    },
+    {
+        name: "address",
+        type: "text",
+        label: "Address",
+        placeHolder: "Select address",
+        value: "",
+        style: { flex: true },
+    },
+    {
+        name: "street",
+        type: "text",
+        label: "Address Line 2",
+        placeHolder: "Select address line 2",
+        value: "",
+        style: { flex: true },
+    },
+    {
+        name: "zipcode",
+        type: "text",
+        label: "Zip Code",
+        placeHolder: "Enter your ZipCode",
+        value: "",
+        style: { flex: true },
+        regEx: onlyNumberShouldAllowed
+    },
+]
+export const interpreterFromInitialValue2ValidationSchema = Yup.object().shape({
+    date_of_birth: Yup.string().required('Date is required'),
+    country_code: Yup.object().required('Country is required'),
+    state: Yup.object().required('State is required'),
+    city: Yup.object().required('City is required'),
+    address: Yup.string().required('Address is required'),
+    street: Yup.string().required('Address line 2 is required'),
+    zipcode: Yup.string().required('Zipcode is required'),
+});

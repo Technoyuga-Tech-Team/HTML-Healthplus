@@ -11,6 +11,7 @@ export default defineConfig({
       '@/componant': '/src/componant',
       '@/comman': '/src/comman',
       '@/utils': '/src/utils',
+      '@/services': '/src/services',
     },
   },
 })

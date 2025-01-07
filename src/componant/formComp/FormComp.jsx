@@ -10,8 +10,9 @@ import DropdownComponentPaginate from "./dropdownPaginate";
 import ButtonComp from "../ButtonComp/ButtonComp";
 import { onChangeTextCharacterLimitConst } from "@/constant/images";
 import PhoneInputData from "../PhoneInput";
+import DatePicker from "./datePicker";
 
-const FormComponent = forwardRef(({ notToDisplayRow, loader, width, initialValues, validationSchema, handleSubmit, buttonText, buttonMarginLeft, forgotPassword }, ref) => {
+const FormComponent = forwardRef(({ setDropdownState, extraDropdownOption, notToDisplayRow, loader, width, initialValues, validationSchema, handleSubmit, buttonText, buttonMarginLeft, forgotPassword }, ref) => {
 
     const getFormInitialValues = useMemo(() => {
         // const finalData = initialValues?.reduce((acc, i) => ({ ...acc, [i?.name]: i?.value }), {});
@@ -102,12 +103,13 @@ const FormComponent = forwardRef(({ notToDisplayRow, loader, width, initialValue
                                                     i?.type === "dropdown" ?
                                                         <div className="mb-4">
                                                             <DropdownComponent
+                                                                setDropdownState={setDropdownState}
                                                                 Placeholder={i?.placeHolder}
                                                                 value={values[i?.name]}
                                                                 disabled={loader || i?.disabled}
                                                                 label={i?.label}
+                                                                extraDropdownOption={extraDropdownOption}
                                                                 setFieldValue={setFieldValue}
-                                                                onChange={handleChange}
                                                                 name={i?.name}
                                                             />
                                                         </div>
@@ -128,26 +130,34 @@ const FormComponent = forwardRef(({ notToDisplayRow, loader, width, initialValue
                                                             </div>
                                                             :
                                                             i?.type === "phone" ?
-                                                            <PhoneInputData
-                                                                label={i?.label}
-                                                                name={i?.name}
-                                                                setFieldValue={setFieldValue}
-                                                                value={values[i?.name]}
-                                                            />
-                                                            :
-                                                            <InputComponent
-                                                                disabled={loader || i?.disabled}
-                                                                label={i?.label}
-                                                                type={i?.type}
-                                                                value={values[i?.name]}
-                                                                onChange={handleChange}
-                                                                setFieldValue={setFieldValue}
-                                                                limit={i?.limit}
-                                                                regEx={i?.regEx}
-                                                                allowMultipleSpace={i?.allowMultipleSpace}
-                                                                name={i?.name}
-                                                                Placeholder={i?.placeHolder}
-                                                            />}
+                                                                <PhoneInputData
+                                                                    label={i?.label}
+                                                                    name={i?.name}
+                                                                    setFieldValue={setFieldValue}
+                                                                    value={values[i?.name]}
+                                                                />
+                                                                :
+                                                                i?.type === "date" ?
+                                                                    <DatePicker
+                                                                        label={i?.label}
+                                                                        name={i?.name}
+                                                                        setFieldValue={setFieldValue}
+                                                                        value={values[i?.name]}
+                                                                    />
+                                                                    :
+                                                                    <InputComponent
+                                                                        disabled={loader || i?.disabled}
+                                                                        label={i?.label}
+                                                                        type={i?.type}
+                                                                        value={values[i?.name]}
+                                                                        onChange={handleChange}
+                                                                        setFieldValue={setFieldValue}
+                                                                        limit={i?.limit}
+                                                                        regEx={i?.regEx}
+                                                                        allowMultipleSpace={i?.allowMultipleSpace}
+                                                                        name={i?.name}
+                                                                        Placeholder={i?.placeHolder}
+                                                                    />}
                                     </div>
                                 )
                             })

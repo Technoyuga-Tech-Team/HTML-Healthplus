@@ -1,6 +1,7 @@
 import React from "react";
 import { AsyncPaginate } from 'react-select-async-paginate';
 import { ErrorMessage } from "formik";
+import { getLanguageApi } from "@/services/language";
 
 const DropdownComponentPaginate = ({ options,
     Placeholder,
@@ -66,66 +67,26 @@ const DropdownComponentPaginate = ({ options,
     const loadMoreOptions = async (search, loadedOptions, { page }) => {
         let newFinalData;
         let hasMore = false;
-        // switch (typeOfApi) {
-        //     case 'certificate':
-        //         {
-        //             const finalData = {
-        //                 page: page,
-        //                 limit: 10,
-        //                 search: search,
-        //                 isActive: true,
-        //             }
-        //             const response = await getCertificateApi(finalData)
-        //             newFinalData = response?.data?.certificates?.map((u) => {
-        //                 return {
-        //                     label: u?.name,
-        //                     value: u?._id
-        //                 }
-        //             })
-        //             hasMore = response?.data?.hasMore
-        //         }
-        //         break;
-
-        //     case 'service':
-        //         {
-
-        //             const finalData = {
-        //                 page: page,
-        //                 limit: 10,
-        //                 search: search,
-        //                 isActive: true,
-        //             }
-        //             const response = await getHomeCareServiceApi(finalData)
-        //             newFinalData = response?.data?.services?.map((u) => {
-        //                 return {
-        //                     label: u?.name,
-        //                     value: u?._id
-        //                 }
-        //             })
-        //             hasMore = response?.data?.hasMore
-        //         }
-        //         break;
-
-        //     case 'category':
-        //         {
-        //             const finalData = {
-        //                 page: page,
-        //                 limit: 10,
-        //                 search: search,
-        //                 isActive: true,
-        //             }
-        //             const response = await getCategoryApi(finalData)
-        //             newFinalData = response?.data?.category?.map((u) => {
-        //                 return {
-        //                     label: u?.name,
-        //                     value: u?._id
-        //                 }
-        //             })
-        //             hasMore = response?.data?.hasMore
-        //         }
-        //         break;
-
-        // }
+        switch (typeOfApi) {
+            case 'language':
+                {
+                    const finalData = {
+                        page: page,
+                        limit: 10,
+                        search: search,
+                        isActive: true,
+                    }
+                    const response = await getLanguageApi(finalData)
+                    newFinalData = response?.data?.data?.map((u) => {
+                        return {
+                            label: u?.name,
+                            value: u?._id
+                        }
+                    })
+                    hasMore = response?.data?.hasMore
+                }
+                break;
+        }
 
         return {
             options: newFinalData,

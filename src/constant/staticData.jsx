@@ -179,12 +179,12 @@ export const tabBarOptions = [{
     icon: <HiUser size={22} />,
     title: "Customer",
     desc: "Manage your appointments and communicate with your interpreters",
-    isSelected: true
+    isCustomer: true
 }, {
     id: 2,
     icon: <BsWechat size={22} />,
     title: "Interpreter",
     desc: "Connect with users to bridge language barriers during consultations.",
-    isSelected: false
+    isCustomer: false
 },
 ]

@@ -19,7 +19,10 @@
       ],
       "@/utils/*": [
         "src/utils/*"
-      ]
+      ],
+      "@/services/*": [
+        "src/services/*"
+      ],
     }
   }
 }

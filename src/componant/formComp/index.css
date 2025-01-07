@@ -52,3 +52,29 @@
 input::placeholder {
     color: rgba(102, 102, 102, 1) !important;
 }
+
+.css-4k4mmf-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
+    background-color: var(--primary-color) !important;
+}
+
+.css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 10px 16px !important;
+    border-radius: 10px !important;
+}
+
+.css-jupps9-MuiInputBase-root-MuiOutlinedInput-root {
+    border-radius: 10px !important;
+}
+
+.css-10o2lyd-MuiStack-root>.MuiTextField-root,
+.css-10o2lyd-MuiStack-root>.MuiPickersTextField-root {
+    width: -webkit-fill-available !important;
+}
+
+.css-10o2lyd-MuiStack-root {
+    padding-top: 0px !important;
+}
+
+.css-1ll44ll-MuiOutlinedInput-notchedOutline {
+    border-color: #ced4da !important;
+}
