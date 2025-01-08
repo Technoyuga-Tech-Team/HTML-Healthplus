@@ -1,16 +1,16 @@
 import ButtonComp from "@/componant/ButtonComp/ButtonComp";
+import { sendOtpWithSignup } from "@/services/authentication";
+import { displayErrorToast, displaySuccessToast } from "@/utils/displayToasts";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function OtpVarificatiion({ onClick, loader }) {
+function OtpVarificatiion({ onClick, loader, formData }) {
     const [otp, setOtp] = useState(['', '', '', '', '', '']);
     const inputRefs = useRef([]);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [timer, setTimer] = useState(60);
     const [disable1, setDisable1] = useState(false);
-    const [allValuesFilledforrideOTP, setAllValuesFilledforrideOTP] = useState(false);
-    const [confirmatioObject, setConfirmationObject] = useState(null)
-    const [otpLoader, setOptpLoader] = useState(false)
+    const [otpLoader, setOtpLoader] = useState(false)
 
     const handleOtpChange = (index, value) => {
         if (value === '' && index > 0) {
@@ -44,22 +44,16 @@ function OtpVarificatiion({ onClick, loader }) {
     };
 
     const handleResendClick = async () => {
-        // if (timer === 0) {
-        //     setOptpLoader(true)
-        //     await AddCaptchaElement()
-        //     const otpSendResponse = await sendOtpForMobileNumber(userObject?.fireFormat)
-        //     if (otpSendResponse?.success) {
-        //         await deleteAddCaptchaElement()
-        //         displaySuccessToast(otpSendResponse?.message)
-        //         setConfirmationObject(otpSendResponse?.data)
-        //         setOtp(['', '', '', '', '', ''])
-        //         setTimer(60)
-        //     } else {
-        //         await deleteAddCaptchaElement()
-        //         displayErrorToast(otpSendResponse?.message)
-        //     }
-        //     setOptpLoader(false)
-        // }
+        setOtpLoader(true)
+        const response = await sendOtpWithSignup({ email: formData?.email })
+        if (response?.success) {
+            setOtp(['', '', '', '', '', ''])
+            setTimer(60)
+            displaySuccessToast(response.message)
+        } else {
+            displayErrorToast(response.message)
+        }
+        setOtpLoader(false)
     };
 
     useEffect(() => {
@@ -82,46 +76,9 @@ function OtpVarificatiion({ onClick, loader }) {
         }
     }, [timer, isButtonDisabled]);
 
-    useEffect(() => {
-        const isFilledOtp = otp.every(value => value !== '');
-        setAllValuesFilledforrideOTP(isFilledOtp);
-    }, [otp]);
 
     const onSubmitData = async (e) => {
         e.preventDefault()
-        // if (allValuesFilledforrideOTP) {
-        //     if (timer === 0) {
-        //         displayErrorToast("Invalid verification code. Please check and try again.")
-        //     } else {
-        //         setDisable1(true)
-        //         const stringResult = otp.join("");
-        //         const finalData = await confirmOtpMobileNumber(confirmatioObject || otpVarificationObject, stringResult)
-        //         if (finalData?.success) {
-        //             if (resetPassword) {
-        //                 resetPassword(userObject?.uid || finalData?.data?.user?.uid)
-        //             } else {
-        //                 const rest = {
-        //                     ...userObject,
-        //                     uid: finalData?.data?.user?.uid
-        //                 };
-        //                 setDataInOtpVerifications(rest)
-        //                 // const addDataInfirebase = await addRegisterUserDataInFirestore(rest)
-        //                 // if (addDataInfirebase?.success) {
-        //                 //     displaySuccessToast(addDataInfirebase?.message)
-        //                 //     navigation(navigationConst?.login)
-        //                 // } else {
-        //                 //     displayErrorToast(addDataInfirebase?.message)
-        //                 // }
-        //             }
-        //         } else {
-        //             displayErrorToast(finalData?.message)
-        //         }
-        //         setDisable1(false)
-        //     }
-        // }
-        // else {
-        //     displayErrorToast("Please fill otp")
-        // }
     }
 
     const handleKeyPress = (event) => {

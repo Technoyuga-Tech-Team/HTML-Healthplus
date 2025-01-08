@@ -7,3 +7,16 @@
     align-items: center;
     cursor: pointer;
 }
+
+.tab-bar-main-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 991px) {
+    .tab-bar-main-wrapper {
+        flex-direction: column;
+        margin: 0px !important
+    }
+
+}

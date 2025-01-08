@@ -5,7 +5,7 @@ const TabBar = ({ options, onClickTabBar, selectedTab }) => {
     console.log("selectedTab",selectedTab);
     
     return (
-        <div className='d-flex'>
+        <div className='tab-bar-main-wrapper'>
             {
                 options?.map((o, i) => {
                     return (

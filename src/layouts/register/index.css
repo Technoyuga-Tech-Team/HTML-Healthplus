@@ -24,12 +24,11 @@
     border: 1px solid rgba(10, 46, 114, 0.26);
 }
 
-
-
 .register-main-wrapper-flex {
     display: flex;
     text-align: center;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .register-main-wrapper-flex-inner {
@@ -111,5 +110,22 @@
 
     .register-main-wrapper-right {
         width: 100%;
+    }
+
+    .register-main-wrapper-right-inner {
+        margin: 10px;
+        width: auto;
+        border: none;
+        padding: 0px
+    }
+
+    .register-main-wrapper-left {
+        margin: 0px 20px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .register-main-wrapper-flex-inner {
+        width: 50%;
     }
 }

@@ -11,6 +11,7 @@ import stateJSON from '../../jsons/state'
 import cityJSON from '../../jsons/city'
 import { sendOtpWithSignup, verifyOtpWithSignup } from '@/services/authentication'
 import { MdOutlineVerified } from "react-icons/md";
+import { IoMdArrowBack } from "react-icons/io";
 
 const Register = () => {
 
@@ -34,8 +35,9 @@ const Register = () => {
         setFormData({
             ...formData, ...data
         })
+        setFormDataSecondStep()
         if ((formSteps == 0 && tabBar?.isCustomer) || (formSteps == 1 && !tabBar?.isCustomer)) {
-            await sendOtpAPI({ email: data.email  || formData?.email})
+            await sendOtpAPI({ email: data.email || formData?.email })
         } else {
             setFormSteps(formSteps + 1)
         }
@@ -86,19 +88,27 @@ const Register = () => {
 
             if (response?.success) {
                 displaySuccessToast(response.message)
+                setFormSteps(5)
             } else {
                 displayErrorToast(response.message)
             }
 
         }
         setLoader(false)
-        setFormSteps(5)
     }
 
 
     const onClickTabBar = (id) => {
         setTabBar(id)
         setFormSteps(0)
+
+        setFormData({})
+        if (registerRef.current) {
+            registerRef.current.resetForm();
+        }
+        if (secondRegisterRef.current) {
+            secondRegisterRef.current.resetForm();
+        }
     }
 
     const onChangeDropdownState = (data) => {
@@ -141,7 +151,7 @@ const Register = () => {
         return <OtpVarificatiion
             onClick={verifyOtpAPI}
             loader={loader}
-
+            formData={formData}
         />
     }
 
@@ -161,10 +171,15 @@ const Register = () => {
 
     const successfullMessage = () => {
         return (
-            <div style={{ textAlign: "center" }}>
-                <div className='my-3'> <MdOutlineVerified size={40} color='green' /></div>
-                Account created successfully
-            </div>
+            <>
+                <h2 style={{ textAlign: "center" }}>
+                    <div className='my-3'> <MdOutlineVerified size={40} color='green' /></div>
+                    Your Account has been created successfully as a {tabBar?.isCustomer ? "Customer" : "Interpreter"}
+                </h2>
+                <div className='font-color2' style={{ textAlign: "center" }}>
+                    Now you'll be able to login using app
+                </div>
+            </>
         )
     }
 
@@ -188,11 +203,47 @@ const Register = () => {
         if (formSteps == 5) {
             return successfullMessage()
         }
+    }
+
+    const onClickBackIcon = () => {
+        setFormSteps(formSteps - 1)
+        setTimeout(() => {
+            if (registerRef?.current) {
+                registerRef?.current?.setFieldValue('email', formData?.email);
+                registerRef?.current?.setFieldValue('first_name', formData?.first_name);
+                registerRef?.current?.setFieldValue('last_name', formData?.last_name);
+                registerRef?.current?.setFieldValue('username', formData?.username);
+                registerRef?.current?.setFieldValue('phone_number', formData?.phone_number);
+                registerRef?.current?.setFieldValue('password', formData?.password);
+                registerRef?.current?.setFieldValue('language', formData?.language);
+                registerRef?.current?.setFieldValue('confirmPassword', formData?.confirmPassword);
+                registerRef?.current?.setFieldValue('checkbox', formData?.checkbox);
+            }
+
+        }, 100);
+        setFormDataSecondStep()
 
     }
 
-    const renderText = formSteps == 0 ? "Provide the details below" : "Enter the 6-digit code sent to  you at"
-    console.log("secondReisterRegf ----------------");
+    const setFormDataSecondStep = () => {
+        setTimeout(() => {
+            if (secondRegisterRef?.current) {
+                secondRegisterRef?.current?.setFieldValue('date_of_birth', formData?.date_of_birth);
+                secondRegisterRef?.current?.setFieldValue('country_code', formData?.country_code);
+                secondRegisterRef?.current?.setFieldValue('state', formData?.state);
+                secondRegisterRef?.current?.setFieldValue('city', formData?.city);
+                secondRegisterRef?.current?.setFieldValue('address', formData?.address);
+                secondRegisterRef?.current?.setFieldValue('street', formData?.street);
+                secondRegisterRef?.current?.setFieldValue('zipcode', formData?.zipcode);
+            }
+
+        }, 100);
+    }
+
+    console.log("formData", formData);
+
+
+    const renderText = formSteps == 0 ? "Provide the details below" : `Enter the 6-digit code sent to  you at`
 
     return (
         <div>
@@ -215,15 +266,18 @@ const Register = () => {
                     <div className='regular-font font-size3 font-color2 fw-bold' style={{ margin: "40px 0" }}>We believe mental health is a journey, and every journey deserves personalized guidance.</div>
                 </div>
                 <div className='register-main-wrapper-right'>
-                    <TabBar
+                    {formSteps !== 5 && <TabBar
                         selectedTab={tabBar}
                         onClickTabBar={onClickTabBar}
                         options={tabBarOptions}
-                    />
+                    />}
                     <div className='register-main-wrapper-right-inner'>
-                        <div className='register-create-account'>Create an account as a {detailsOfSelectedTab?.title}</div>
-                        <div className='register-create-account-inner
-                    mb-3'>{renderText}</div>
+                        {formSteps != 0 && formSteps != 5 && <div
+                            onClick={onClickBackIcon}
+                            style={{ width: "fit-content", textAlign: "center", cursor: "pointer", color: "blue", borderBottom: "1px solid blue", margin: "auto" }}><IoMdArrowBack style={{ marginRight: "5px", marginTop: "-3px" }} />Back</div>}
+                        {formSteps != 5 && <div className='register-create-account'>Create an account as a {detailsOfSelectedTab?.title}</div>}
+                        {formSteps != 5 && <div className='register-create-account-inner
+                    mb-3'>{renderText} {formSteps != 0 && (tabBar?.isCustomer ? true : formSteps != 1) && <b style={{ color: "black" }}>{formData?.email}</b>}</div>}
                         {renderComponant()}
                     </div>
                 </div>
