@@ -63,9 +63,8 @@ function HeaderComponent({ value, smoothScrollToRef, faqRef }) {
     return (
         <Navbar expand="lg" className="header-main-wrapper-background-color" sticky="top">
             <Container>
-                <div>
+                <div onClick={() => nav("/")}>
                     <img src={HEADER_IMAGES.logo} style={{ width: '130px', cursor: 'pointer' }}
-                    // onClick={() => nav(routeConst?.home)}
                     />
                 </div>
                 <div style={{ display: "flex" }}>

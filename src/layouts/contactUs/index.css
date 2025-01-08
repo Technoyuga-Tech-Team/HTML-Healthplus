@@ -1,0 +1,58 @@
+.cu-contact-header-main-wrapper {
+    padding-bottom: 60px;
+}
+
+.contact-us-main-wrapper {
+    width: 80%;
+    /* max-width: 800px; */
+}
+
+.contact-us-main-wrapper2 {
+    width: 60%;
+    justify-content: center;
+    /* align-items: center; */
+    /* max-width: 800px; */
+}
+
+.subdiv {
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 770px) {
+    .contact-us-main-wrapper {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .contact-us-main-wrapper2 {
+        width: 100%;
+    }
+
+    .subdiv {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .subdiv2 {
+        width: 100%;
+    }
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.contact-icon {
+    margin-right: 10px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.important-link {
+    color: #fff !important;
+    text-decoration: underline;
+    cursor: pointer;
+}

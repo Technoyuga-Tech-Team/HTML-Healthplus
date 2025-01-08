@@ -137,7 +137,7 @@ export const socialMediaConstants = [{
 export const HOME_HEADER_CONST_DATA = [{
     id: 1,
     name: "Home",
-    // nav: routeConst.home
+    nav: "/"
 },
 {
     id: 2,
@@ -152,7 +152,7 @@ export const HOME_HEADER_CONST_DATA = [{
 {
     id: 4,
     name: "Contact Us",
-    // nav: routeConst.whatWeDo
+    nav: "/contact-us"
 }]
 
 export const registerPageConstant = [{

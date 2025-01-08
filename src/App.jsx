@@ -5,6 +5,7 @@ import HeaderComponent from './comman/header';
 import Footer from './comman/footer';
 import Register from './layouts/register';
 import { Toaster } from 'react-hot-toast';
+import ContactUs from './layouts/contactUs/ContactUs';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -187,3 +187,34 @@ export const interpreterFromInitialValue2ValidationSchema = Yup.object().shape({
     street: Yup.string().required('Address line 2 is required'),
     zipcode: Yup.string().required('Zipcode is required'),
 });
+
+// Contact us form
+export const contactUsValidationSchema = Yup.object().shape({
+    email: emailYupValidationConst,
+    title: Yup.string().required('Title is required'),
+    description: Yup.string().required('Description is required'),
+});
+
+export const contactUsInitialValue = [
+    {
+        name: "email",
+        type: "text",
+        label: "Email",
+        placeHolder: "Enter email",
+        value: ""
+    },
+    {
+        name: "title",
+        type: "title",
+        label: "Title",
+        placeHolder: "Enter title",
+        value: ""
+    }, {
+        name: "description",
+        type: "textarea",
+        label: "Description",
+        placeHolder: "Enter description of the project",
+        value: "",
+        limit: 100000
+    },
+]
