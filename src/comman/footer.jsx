@@ -1,7 +1,10 @@
 import React from 'react'
 import "./Footer.css"
 import { footerConst1, socialMediaConstants } from '@/constant/staticData'
+import { useLocation, useNavigate } from 'react-router-dom'
 const Footer = () => {
+    const location = useLocation()
+    const nav = useNavigate()
     return (
         <div className='footer-main-wrappeer'>
             <div className='container'>
@@ -31,7 +34,9 @@ const Footer = () => {
                                             <div className='fw-bold'>{fc?.title}</div>
                                             {fc?.data?.map((f, i) => {
                                                 return (
-                                                    <div key={i}>{f}</div>
+                                                    <div
+                                                        onClick={() => nav(f?.nav)}
+                                                        style={{ cursor: "pointer", borderBottom: location?.pathname === f?.nav && "1px solid #fff" }} key={i}>{f?.text}</div>
                                                 )
                                             })}
                                         </div>

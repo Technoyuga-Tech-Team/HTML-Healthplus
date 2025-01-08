@@ -108,11 +108,41 @@ export const faqConstants = [{
 
 export const footerConst1 = [{
     title: "Company",
-    data: ["About Us", "FAQs", "Contact Us"]
+    data: [
+        {
+            id: 1,
+            text: "About Us",
+            nav: ""
+        }
+        ,
+        {
+            id: 2,
+            text: "FAQs",
+            nav: ""
+        }, {
+            id: 3,
+            text: "Contact Us",
+            nav: "/contact-us"
+        }]
 },
 {
     title: "Get Support",
-    data: ["How it works", "Testimonials", "Blog Post"]
+    data: [
+        {
+            id: 1,
+            text: "How it works",
+            nav: ""
+        }
+        ,
+        {
+            id: 2,
+            text: "Testimonials",
+            nav: ""
+        }, {
+            id: 3,
+            text: "Blog Post",
+            nav: ""
+        }]
 },
     // {
     //     title: "Stay Update",

@@ -49,11 +49,6 @@ function HeaderComponent({ value, smoothScrollToRef, faqRef }) {
                             onClick={() => nav('/register')}
                             width={"auto"}
                         />
-                        {/* <ButtonComp
-                            width={"auto"}
-                            text="sign up"
-                        // onClick={() => nav(routeConst.register)}
-                        /> */}
                     </div>
                 }
             </>
@@ -83,7 +78,7 @@ function HeaderComponent({ value, smoothScrollToRef, faqRef }) {
                                         onClick={() => onClickHeaderItemData(d?.nav, d?.ref === "faqRef" && faqRef)}
                                         style={{
                                             cursor: "pointer",
-                                            color: location?.pathname == d?.nav ? "var(--app-main-theme-background-color)" : null
+                                            color: location?.pathname == d?.nav ? "var(--primary-color)" : null
                                         }}
                                         className=' main-text-normal header-item-text px-md-4'
                                     >{d?.name}</div>

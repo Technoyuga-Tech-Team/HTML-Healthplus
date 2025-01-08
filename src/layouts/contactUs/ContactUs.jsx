@@ -7,7 +7,7 @@ import { contactUsApi } from "@/services/contactUs";
 import { contactUsInitialValue, contactUsValidationSchema } from "@/utils/validationSchema";
 
 const ContactUsLayout = () => {
-    const [loader, setLoader] = useState()
+    const [loader, setLoader] = useState(false)
     const contactUsRef = useRef()
 
     const onSubmitFormData = async (val) => {
@@ -28,7 +28,7 @@ const ContactUsLayout = () => {
     }
 
     return (
-        <div style={{background:"rgba(8, 126, 65, 0.1)"}}>
+        <div style={{ background: "rgba(8, 126, 65, 0.1)" }}>
             <div className="container cu-contact-header-main-wrapper">
                 <div className="cu-contact-header-main-wrapper-right">
                     <div className="py-5" style={{ textAlign: "center", padding: "50px 20px" }}>
