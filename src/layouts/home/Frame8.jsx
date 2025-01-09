@@ -2,12 +2,12 @@
 import ControlledAccordions from '@/componant/accordian/accordian'
 import { LANDING_PAGE_IMAGES } from '@/constant/images'
 import { faqConstants } from '@/constant/staticData'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-const Frame8 = () => {
+const Frame8 = forwardRef((props, ref) => {
   return (
     <div>
-      <div className='container'>
+      <div className='container' ref ={ref}>
         <div className='eightf-main-wrapper'>
           <div className='eightf-main-wrapper-left my-2'>
             <img src={LANDING_PAGE_IMAGES[12]} style={{ width: "90%" }} />
@@ -29,6 +29,9 @@ const Frame8 = () => {
       </div>
     </div>
   )
-}
+})
+
+
+Frame8.displayName = 'EightFrame';
 
 export default Frame8

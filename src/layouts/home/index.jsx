@@ -12,20 +12,25 @@ import Frame9 from './Frame9'
 import Footer from '@/comman/footer'
 import HeaderComponent from '@/comman/header'
 
-const Home = () => {
+const Home = ({ homeRef, aboutUsRef,
+  howItWorksRef,
+  faqRef,
+  testimonialRef
+}) => {
 
   return (
-    <>
+    <div ref={homeRef}>
       <Frame1 />
       <Frame2 />
-      <Frame3 />
+      <Frame3
+        ref={aboutUsRef} />
       <Frame4 />
       <Frame5 />
-      <Frame6 />
+      <Frame6 ref={howItWorksRef} />
       <Frame7 />
-      <Frame8 />
-      <Frame9 />
-    </>
+      <Frame8 ref={faqRef} />
+      <Frame9 ref={testimonialRef} />
+    </div>
   )
 }
 

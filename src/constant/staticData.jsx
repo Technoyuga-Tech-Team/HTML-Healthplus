@@ -112,12 +112,13 @@ export const footerConst1 = [{
         {
             id: 1,
             text: "About Us",
-            nav: ""
+            refConst: "aboutUsRef"
         }
         ,
         {
             id: 2,
             text: "FAQs",
+            refConst: "faqRef",
             nav: ""
         }, {
             id: 3,
@@ -131,13 +132,15 @@ export const footerConst1 = [{
         {
             id: 1,
             text: "How it works",
-            nav: ""
+            nav: "",
+            refConst: "howItWorksRef"
         }
         ,
         {
             id: 2,
             text: "Testimonials",
-            nav: ""
+            nav: "",
+            refConst: "testimonialRef"
         }, {
             id: 3,
             text: "Blog Post",
@@ -167,17 +170,21 @@ export const socialMediaConstants = [{
 export const HOME_HEADER_CONST_DATA = [{
     id: 1,
     name: "Home",
-    nav: "/"
+    nav: "/",
+    refConst: "homeRef"
+
 },
 {
     id: 2,
     name: "About Us",
+    refConst: "aboutUsRef"
     // nav: routeConst.findProject
 },
 {
     id: 3,
     name: "How it works",
     // nav: routeConst.faq
+    refConst: "howItWorksRef"
 },
 {
     id: 4,

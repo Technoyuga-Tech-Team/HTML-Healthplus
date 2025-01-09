@@ -2,9 +2,26 @@ import React from 'react'
 import "./Footer.css"
 import { footerConst1, socialMediaConstants } from '@/constant/staticData'
 import { useLocation, useNavigate } from 'react-router-dom'
-const Footer = () => {
+import { getRefToScrollSpecificPosition } from '@/utils'
+const Footer = ({ value, smoothScrollToRef, homeRef, howItWorksRef, testimonialRef, whyUsRef, fraturesRef, aboutUsRef, faqRef }) => {
     const location = useLocation()
     const nav = useNavigate()
+
+    const onClickFooterData = (ref, route) => {
+        console.log("ref, route", ref, route);
+
+        if (!route) {
+            if (value !== "Home") {
+                localStorage.setItem("INPUT_DATA", ref)
+                nav("/")
+            } else {
+                getRefToScrollSpecificPosition(ref, smoothScrollToRef, homeRef, howItWorksRef, whyUsRef, fraturesRef, aboutUsRef, testimonialRef, faqRef)
+            }
+        } else {
+            nav(route)
+        }
+    }
+
     return (
         <div className='footer-main-wrappeer'>
             <div className='container'>
@@ -35,7 +52,7 @@ const Footer = () => {
                                             {fc?.data?.map((f, i) => {
                                                 return (
                                                     <div
-                                                        onClick={() => nav(f?.nav)}
+                                                        onClick={() => onClickFooterData(f?.refConst, f?.nav)}
                                                         style={{ cursor: "pointer", borderBottom: location?.pathname === f?.nav && "1px solid #fff" }} key={i}>{f?.text}</div>
                                                 )
                                             })}

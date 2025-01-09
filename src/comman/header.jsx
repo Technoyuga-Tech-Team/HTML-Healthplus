@@ -6,9 +6,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { HEADER_IMAGES } from '@/constant/images';
 import { HOME_HEADER_CONST_DATA } from '@/constant/staticData';
 import ButtonComp from '@/componant/ButtonComp/ButtonComp';
+import { getRefToScrollSpecificPosition } from '@/utils';
 
 
-function HeaderComponent({ value, smoothScrollToRef, faqRef }) {
+function HeaderComponent({ value, smoothScrollToRef, homeRef, howItWorksRef, whyUsRef, fraturesRef, aboutUsRef }) {
 
     const nav = useNavigate()
     const location = useLocation()
@@ -20,13 +21,19 @@ function HeaderComponent({ value, smoothScrollToRef, faqRef }) {
     const onClickProfileData = () => {
 
     }
+    const onClickHeaderData = (ref, route) => {
+        console.log("ref, route", ref, route);
 
-    const onClickHeaderItemData = (na, ref) => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // for a smooth scroll effect
-        });
-        nav(na)
+        if (!route) {
+            if (value !== "Home") {
+                localStorage.setItem("INPUT_DATA", ref)
+                nav("/")
+            } else {
+                getRefToScrollSpecificPosition(ref, smoothScrollToRef, homeRef, howItWorksRef, whyUsRef, fraturesRef, aboutUsRef)
+            }
+        } else {
+            nav(route)
+        }
     }
 
     const ProfileController = () => {
@@ -58,7 +65,7 @@ function HeaderComponent({ value, smoothScrollToRef, faqRef }) {
     return (
         <Navbar expand="lg" className="header-main-wrapper-background-color" sticky="top">
             <Container>
-                <div onClick={() => nav("/")}>
+                <div onClick={() => { nav("/") }}>
                     <img src={HEADER_IMAGES.logo} style={{ width: '130px', cursor: 'pointer' }}
                     />
                 </div>
@@ -75,7 +82,7 @@ function HeaderComponent({ value, smoothScrollToRef, faqRef }) {
                                 return (
                                     <div
                                         key={index}
-                                        onClick={() => onClickHeaderItemData(d?.nav, d?.ref === "faqRef" && faqRef)}
+                                        onClick={() => onClickHeaderData(d?.refConst, d?.nav)}
                                         style={{
                                             cursor: "pointer",
                                             color: location?.pathname == d?.nav ? "var(--primary-color)" : null

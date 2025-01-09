@@ -1,12 +1,12 @@
 
 import { LANDING_PAGE_IMAGES } from '@/constant/images'
 import { howItWorksConstants } from '@/constant/staticData'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-const Frame6 = () => {
+const Frame6 = forwardRef((props, ref) => {
   return (
     <div>
-      <div className='sif-main-wrapper'>
+      <div className='sif-main-wrapper' ref={ref}>
         <div className='container'>
           <div className='sif-main-wrapper'>
             <div className='sif-main-wrapper-left'>
@@ -41,6 +41,9 @@ const Frame6 = () => {
       </div>
     </div>
   )
-}
+})
+
+Frame6.displayName = 'SixthFrame';
+
 
 export default Frame6

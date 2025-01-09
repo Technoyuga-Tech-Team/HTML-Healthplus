@@ -1,10 +1,11 @@
 
 import ButtonComp from '@/componant/ButtonComp/ButtonComp'
 import { LANDING_PAGE_IMAGES } from '@/constant/images'
+import { forwardRef } from 'react'
 
-const Frame3 = () => {
+const Frame3 = forwardRef((props, ref) => {
   return (
-    <div className='container'>
+    <div className='container' ref={ref}>
       <div className='tf-main-wrapper'>
         <div className='tf-main-wrapper-left'>
         <img src={LANDING_PAGE_IMAGES[5]} />
@@ -22,6 +23,8 @@ const Frame3 = () => {
         </div>
       </div>
     </div>)
-}
+})
+
+Frame3.displayName = 'ThirdFrame';
 
 export default Frame3

@@ -1,10 +1,10 @@
 import StarComponant from '@/componant/ButtonComp/starComponant'
 import { LANDING_PAGE_IMAGES } from '@/constant/images'
-import React from 'react'
+import React, { forwardRef } from 'react'
 
-const Frame9 = () => {
+const Frame9 = forwardRef((props, ref) => {
     return (
-        <div className='p-4' style={{ background: "var(--secondary-color)" }}>
+        <div ref={ref} className='p-4' style={{ background: "var(--secondary-color)" }}>
             <div className='container' style={{ marginBottom: "40px", marginTop: "60px" }}>
                 <div className=' green-color-text'>
                     Testimonials
@@ -36,6 +36,9 @@ const Frame9 = () => {
             </div>
         </div>
     )
-}
+})
+
+Frame9.displayName = 'NineFrame';
+
 
 export default Frame9
