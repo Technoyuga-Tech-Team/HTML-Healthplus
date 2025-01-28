@@ -8,17 +8,17 @@
 
 @font-face {
   font-family: 'font-dark';
-  src: url('./assets/fonts/Lato-Bold.ttf') format('truetype');
+  src: url('/assets/fonts/Lato-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'font-medium';
-  src: url('./assets/fonts/Lato-Black.ttf') format('truetype');
+  src: url('/assets/fonts/Lato-Black.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'font-regular';
-  src: url('./assets/fonts/Lato-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Lato-Regular.ttf') format('truetype');
 }
 
 body {
