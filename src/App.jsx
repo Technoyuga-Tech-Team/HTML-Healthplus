@@ -8,7 +8,9 @@ import { Toaster } from 'react-hot-toast';
 import ContactUs from './layouts/contactUs/ContactUs';
 import { useEffect, useRef } from 'react';
 import { getRefToScrollSpecificPosition } from './utils';
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./App.css"
 
 function AppContent() {
   const homeRef = useRef(null);

@@ -225,3 +225,20 @@ export const tabBarOptions = [{
     isCustomer: false
 },
 ]
+
+export const TESTIMONIAL_CONST = [{
+    desc: "I’ve been using INTERP for months now and it has completely transformed the way we schedule interpreters. The real-time insights are invaluable.",
+    name: "John Smith",
+    rate: 4,
+},
+{
+    desc: "“INTERP has been a game-changer for our business. The personalized experience and fast results have saved us time and money.”",
+    name: "Emily Johnson",
+    rate: 5,
+},
+{
+    desc: "“I can’t imagine scheduling interpreters without INTERP. The platform is easy to use and provides the insights I need to make informed decisions.”",
+    name: "David Lee",
+    rate: 4,
+},
+]
