@@ -2,7 +2,7 @@ import axios from "axios";
 import { getCancelToken } from "./cancelToken";
 
 export const api_services = axios.create({
-  baseURL: "http://localhost:5001/api",
+  baseURL: "https://api.interp.global/api",
 });
 
 const getToken = () => {
@@ -10,15 +10,16 @@ const getToken = () => {
   return `Bearer ${token}`;
 };
 
-const urlToAddCancelToken = [
-
-];
+const urlToAddCancelToken = [];
 
 api_services.interceptors.request.use(
   function (config) {
     config.headers["Authorization"] = getToken();
 
-    if (urlToAddCancelToken?.includes(config.url) && config?.data?.cancel != true) {
+    if (
+      urlToAddCancelToken?.includes(config.url) &&
+      config?.data?.cancel != true
+    ) {
       config.cancelToken = getCancelToken(config.url);
     }
     return config;
